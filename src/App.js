@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.scss";
 
 function App() {
+  const [collection, setCollection] = useState([]);
+
+  useEffect(() => {
+    //fetch the data
+    fetch(
+      "https://api.unsplash.com/photos/?client_id=C6bzEnmvODyk9wJ3ig0V4E7p9pwGVkZNejOftxLLdVI"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setCollection(() => {
+          return data;
+        });
+      });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="image-container">
+        {collection.length !== 0
+          ? collection.map((item) => (
+              <div className="image-element" key={item.id}>
+                <img src={item.urls.thumb} alt={item.alt_description} />
+              </div>
+            ))
+          : null}
+      </div>
     </div>
   );
 }
