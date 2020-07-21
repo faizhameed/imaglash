@@ -8,8 +8,10 @@ const Header = () => {
       <BackgroundImage />
       <h1>
         Imag
-        <span className="sec-color">LASH</span>
+        <span className="sec-color">lash</span>
       </h1>
+      <h2>Free stock photos for everything</h2>
+      <p>We offer the best free stock photo's all in one place</p>
     </header>
   );
 };
