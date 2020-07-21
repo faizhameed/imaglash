@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Home from "./pages/Home/Home";
 import ImageView from "./pages/ImageView/ImageView";
-import Unsplash, { toJson } from "unsplash-js";
-import { connect } from "react-redux";
 import "./App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { fetchUnsplash } from "./redux/actions";
 
-function App({ fetchUnsplash }) {
-  useEffect(() => {
-    fetchUnsplash();
-  }, []);
+function App() {
   return (
     <Router>
       <div className="App">
@@ -25,8 +19,4 @@ function App({ fetchUnsplash }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchUnsplash: () => dispatch(fetchUnsplash()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

@@ -1,36 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import Button from "../Button/Button";
+
+import { updatePageNumber, setCollection } from "../../redux/actions";
 import { connect } from "react-redux";
-import { toJson } from "unsplash-js";
+
 import "./ImagePanel.scss";
 
-const ImagePanel = ({ unsplash }) => {
-  const [collection, setCollection] = useState([]);
+const ImagePanel = ({
+  updatePageNumber,
+  collection,
+  setCollection,
+  page,
+  currentQuery,
+}) => {
   useEffect(() => {
-    console.log(unsplash);
-    if (unsplash)
-      unsplash.search
-        .photos("book", 1, 10, { orientation: "portrait" })
-        .then(toJson)
-        .then((json) => {
-          setCollection(() => json.results);
-        });
-  }, [unsplash]);
+    setCollection();
+  }, [setCollection]);
 
   return (
-    <div className="image-container">
-      {collection.length !== 0
-        ? collection.map((item) => (
-            <div className="image-element" key={item.id}>
-              <img src={item.urls.thumb} alt={item.alt_description} />
-            </div>
-          ))
-        : null}
-    </div>
+    <React.Fragment>
+      <div className="image-container">
+        {collection.length !== 0
+          ? collection.map((item) => (
+              <div className="image-element" key={item.id}>
+                <img src={item.urls.small} alt={item.alt_description} />
+              </div>
+            ))
+          : null}
+      </div>
+      <Button onClick={() => updatePageNumber(page, currentQuery)}>
+        Load More
+      </Button>
+    </React.Fragment>
   );
 };
 
-const mapStateToProps = ({ unsplashReducer: { unsplash } }) => ({
-  unsplash,
+const mapStateToProps = ({
+  unsplashReducer: { collection, page, currentQuery },
+}) => ({
+  collection,
+  page,
+  currentQuery,
 });
 
-export default connect(mapStateToProps)(ImagePanel);
+const mapDispatchToProps = (dispatch) => ({
+  updatePageNumber: (page, query) => dispatch(updatePageNumber(page, query)),
+  setCollection: () => dispatch(setCollection()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ImagePanel);

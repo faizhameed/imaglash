@@ -1,0 +1,48 @@
+$yellow: #f89f2e;
+$secondaryColor: #49c4c0;
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  p {
+    margin-left: 10px;
+    color: $yellow;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+.search-input {
+  padding: 1em;
+  margin: 0.5em 0;
+  color: #222222;
+  background: white;
+  border: none;
+  border-radius: 3px;
+  width: 50%;
+  min-width: 250px;
+  height: 25px;
+}
+.inp-btn-cont {
+  display: flex;
+  align-items: center;
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $secondaryColor;
+    transform: translateX(-20px);
+    transition: 0.1s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #222222;
+    }
+    &:active {
+      transform: translateX(-25px);
+    }
+    svg {
+      margin: auto;
+    }
+  }
+}

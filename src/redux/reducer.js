@@ -3,16 +3,62 @@ import { combineReducers } from "redux";
 
 const UNSPLASH_STATE = {
   unsplash: null,
+  tags: [
+    "Dog",
+    "Cat",
+    "Space",
+    "Nature",
+    "Business",
+    "Office",
+    "Coffee",
+    "World",
+    "Wildlife",
+    "Beach",
+    "Digital",
+    "Meeting",
+    "Cars",
+    "Games",
+    "Holiday",
+  ],
+  currentQuery: "Book",
+  page: 1,
+  collection: [],
+  totalPages: 0,
 };
 
 function unsplashReducer(state = UNSPLASH_STATE, action) {
   switch (action.type) {
-    case actionTypes.UNSPLASH_PROMISE_SUCCESS:
+    case actionTypes.UNSPLASH_INITIALISED:
       return {
         ...state,
         unsplash: action.payload,
       };
+    case actionTypes.ON_PAGE_LOAD:
+      return {
+        ...state,
+        collection: [...action.payload.results],
+        totalPages: action.payload.total_pages,
+        page: 1,
+      };
 
+    case actionTypes.SEARCH_QUERY_CHANGED:
+      return {
+        ...state,
+
+        collection: [...action.payload.results],
+        page: 1,
+        totalPages: action.payload.total_pages,
+        currentQuery: action.query,
+      };
+
+    case actionTypes.LOAD_MORE_DATA:
+      if (state.page < state.totalPages)
+        return {
+          ...state,
+          page: state.page + 1,
+          collection: [...state.collection, ...action.payload.results],
+        };
+      break;
     default:
       return state;
   }

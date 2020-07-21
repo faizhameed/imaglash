@@ -1,0 +1,21 @@
+$secondaryColor: #49c4c0;
+.btn {
+  background-color: #49c4c0;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1em;
+  width: 150px;
+  margin: 35px auto;
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+  border-radius: 25px;
+  &:hover {
+    background-color: #222222;
+  }
+  &:active {
+    transform: translate(-2px, -2px);
+  }
+}

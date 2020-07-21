@@ -3,3 +3,17 @@ $secondaryColor: #49c4c0;
 .sec-color {
   color: $secondaryColor;
 }
+
+header {
+  color: rgb(253, 244, 244);
+  h1 {
+    font-size: 4em;
+    padding: 1em 0;
+  }
+  h2 {
+    font-size: 3em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+}
