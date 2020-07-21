@@ -1,0 +1,27 @@
+:root {
+  /* Base font size */
+  font-size: 10px;
+
+  /* Heading height variable*/
+  --heading-height: 100em;
+}
+
+/* Create angled background with 'before' pseudo-element */
+.back-img {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0em;
+  width: 100%;
+  height: calc(var(--heading-height) + 10em);
+  z-index: -1;
+  transform: skewY(-7.5deg);
+  border-bottom: 0.2em solid #fff;
+  box-shadow: -1px -7px 20px 0px black;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://images.unsplash.com/photo-1495464101292-552d0b52fe41?auto=format&fit=crop&w=1350&q=80)
+      no-repeat center,
+    linear-gradient(#4e4376, #2b5876);
+  background-size: cover;
+}
