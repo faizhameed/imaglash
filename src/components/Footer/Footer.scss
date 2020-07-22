@@ -20,6 +20,8 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 70%;
+    flex-wrap: wrap;
+    padding: 20px;
   }
   .tag-container {
     display: grid;

@@ -3,11 +3,12 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { downloadImage } from "../../utils/common";
 
-import "./ImageView.scss";
 import Button from "../../components/Button/Button";
 import CloseIcon from "../../assets/svgs/close.svg";
 
-const ImageView = ({ userImageSelection, history }) => {
+import "./ImageView.scss";
+
+const ImageView = ({ userImageSelection }) => {
   return (
     <div className="wrapper">
       <div className="img-view-container">
