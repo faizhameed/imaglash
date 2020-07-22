@@ -55,3 +55,17 @@ export const setCollection = () => {
     }
   };
 };
+
+export const getRandomImage = () => {
+  return function (dispatch) {
+    unsplash.photos
+      .getRandomPhoto({ query: "dark" })
+      .then(toJson)
+      .then((json) => {
+        dispatch({
+          type: actionTypes.RANDOM_IMAGE_TRIGGER,
+          payload: json.urls.regular,
+        });
+      });
+  };
+};

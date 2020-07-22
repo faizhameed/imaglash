@@ -24,6 +24,8 @@ const UNSPLASH_STATE = {
   page: 1,
   collection: [],
   totalPages: 0,
+  randomImageUrl: "",
+  userImageSelection: null,
 };
 
 function unsplashReducer(state = UNSPLASH_STATE, action) {
@@ -59,6 +61,11 @@ function unsplashReducer(state = UNSPLASH_STATE, action) {
           collection: [...state.collection, ...action.payload.results],
         };
       break;
+    case actionTypes.RANDOM_IMAGE_TRIGGER:
+      return {
+        ...state,
+        randomImageUrl: action.payload,
+      };
     default:
       return state;
   }

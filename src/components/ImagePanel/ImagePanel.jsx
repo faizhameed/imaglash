@@ -22,7 +22,7 @@ const ImagePanel = ({
       <div className="image-container">
         {collection.length !== 0
           ? collection.map((item) => (
-              <div className="image-element" key={item.id}>
+              <div className="image-element" onClick={} key={item.id}>
                 <img src={item.urls.small} alt={item.alt_description} />
               </div>
             ))

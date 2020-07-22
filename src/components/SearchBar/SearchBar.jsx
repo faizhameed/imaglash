@@ -15,11 +15,13 @@ const SearchBar = ({ tags, changeSearchQuery }) => {
     <div>
       <div className="tag-container">
         <h4>Search by Tags:</h4>
-        {tags.map((tag, i) => (
-          <p onClick={() => changeSearchQuery(tag)} key={i}>
-            {tag}
-          </p>
-        ))}
+        {tags
+          .filter((tag, i) => i < 9)
+          .map((tag, i) => (
+            <p onClick={() => changeSearchQuery(tag)} key={i}>
+              {tag}
+            </p>
+          ))}
       </div>
       <div className="inp-btn-cont">
         <input
