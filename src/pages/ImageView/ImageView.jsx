@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 
 const ImageView = () => {
   return (
-    <div>
-      <h2>Image Detail view</h2>
-      <Link to="/">Home</Link>
+    <div className="wrapper">
+      <div className="img-view-container">
+        <h2>Image Detail view</h2>
+        <Link className="back-hm" to="/">
+          X
+        </Link>
+      </div>
     </div>
   );
 };
