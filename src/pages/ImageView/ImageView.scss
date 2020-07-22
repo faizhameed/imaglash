@@ -1,3 +1,5 @@
+$secondaryColor: #49c4c0;
+
 .wrapper {
   background-color: rgba(0, 0, 0, 0.842);
   position: fixed;
@@ -8,14 +10,16 @@
   z-index: 1;
   .img-view-container {
     min-width: 300px;
-    width: 50vw;
-    height: 70vh;
+    width: 40vw;
+    height: 80vh;
     background-color: white;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 7px;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: #222222;
   }
   .back-hm {
     width: 30px;
@@ -26,5 +30,51 @@
     position: absolute;
     right: -11px;
     top: -11px;
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 15px;
+      fill: white;
+      &:active {
+        fill: $secondaryColor;
+        left: 40%;
+        top: 45%;
+        transform: scale(0.75) translate(-50%, -50%);
+      }
+    }
+  }
+  .img-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    .user-details {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      width: 200px;
+      padding: 30px 0;
+      img {
+        border-radius: 50%;
+        grid-area: 1/1/3/2;
+        align-self: center;
+      }
+      h5 {
+        align-self: flex-end;
+        margin: 0;
+      }
+      p {
+        align-self: flex-start;
+        margin: 0;
+      }
+    }
+    .selected-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }

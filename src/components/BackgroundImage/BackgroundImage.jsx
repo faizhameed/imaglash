@@ -6,7 +6,7 @@ import { getRandomImage } from "../../redux/actions";
 const BackgroundImage = ({ randomImageUrl, getRandomImage }) => {
   useEffect(() => {
     getRandomImage();
-  }, []);
+  }, [getRandomImage]);
   const Div = styled.div`
     content: "";
     display: block;

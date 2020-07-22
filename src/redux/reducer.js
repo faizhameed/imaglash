@@ -66,6 +66,12 @@ function unsplashReducer(state = UNSPLASH_STATE, action) {
         ...state,
         randomImageUrl: action.payload,
       };
+
+    case actionTypes.USER_CLICKS_IMAGE:
+      return {
+        ...state,
+        userImageSelection: action.payload,
+      };
     default:
       return state;
   }
