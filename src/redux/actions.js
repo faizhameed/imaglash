@@ -1,10 +1,6 @@
 import actionTypes from "./types";
-
-import Unsplash, { toJson } from "unsplash-js";
-
-const unsplash = new Unsplash({
-  accessKey: "C6bzEnmvODyk9wJ3ig0V4E7p9pwGVkZNejOftxLLdVI",
-});
+import { unsplash } from "../utils/common";
+import { toJson } from "unsplash-js";
 
 export const changeSearchQuery = (query) => {
   return function (dispatch) {
@@ -59,7 +55,7 @@ export const setCollection = () => {
 export const getRandomImage = () => {
   return function (dispatch) {
     unsplash.photos
-      .getRandomPhoto({ query: "dark" })
+      .getRandomPhoto({ query: "nature" })
       .then(toJson)
       .then((json) => {
         dispatch({
@@ -69,3 +65,10 @@ export const getRandomImage = () => {
       });
   };
 };
+
+export const userSelectImage = (data) => ({
+  type: actionTypes.USER_CLICKS_IMAGE,
+  payload: data,
+});
+
+export const imageDownload = (data) => {};

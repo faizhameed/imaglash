@@ -1,18 +1,53 @@
 import React from "react";
-import "./ImageView.scss";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { downloadImage } from "../../utils/common";
 
-const ImageView = () => {
+import "./ImageView.scss";
+import Button from "../../components/Button/Button";
+import CloseIcon from "../../assets/svgs/close.svg";
+
+const ImageView = ({ userImageSelection, history }) => {
   return (
     <div className="wrapper">
       <div className="img-view-container">
-        <h2>Image Detail view</h2>
         <Link className="back-hm" to="/">
-          X
+          <CloseIcon />
         </Link>
+        {userImageSelection ? (
+          <div className="img-container">
+            <div className="user-details">
+              <img
+                src={userImageSelection.user.profile_image.medium}
+                alt={userImageSelection.user.name}
+              />
+              <h5>{userImageSelection.user.name}</h5>
+              <p>
+                @
+                {userImageSelection.user.twitter_username
+                  ? userImageSelection.user.twitter_username
+                  : userImageSelection.user.name}
+              </p>
+            </div>
+            <img
+              className="selected-image"
+              src={userImageSelection.urls.regular}
+              alt={userImageSelection.alt_description}
+            />
+            <Button onClick={() => downloadImage(userImageSelection.urls.raw)}>
+              Download
+            </Button>
+          </div>
+        ) : (
+          <Redirect push to="/" />
+        )}
       </div>
     </div>
   );
 };
 
-export default ImageView;
+const mapStateToProps = ({ unsplashReducer: { userImageSelection } }) => ({
+  userImageSelection,
+});
+
+export default connect(mapStateToProps)(ImageView);
