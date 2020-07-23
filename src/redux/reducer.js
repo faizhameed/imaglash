@@ -28,7 +28,7 @@ const UNSPLASH_STATE = {
   userImageSelection: null,
 };
 
-function unsplashReducer(state = UNSPLASH_STATE, action) {
+export function unsplashReducer(state = UNSPLASH_STATE, action) {
   switch (action.type) {
     case actionTypes.UNSPLASH_INITIALISED:
       return {

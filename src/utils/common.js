@@ -1,5 +1,8 @@
 import Unsplash from "unsplash-js";
 
+/*
+ * setup local env with your api key to access the api
+ */
 export const unsplash = new Unsplash({
   accessKey: process.env.REACT_APP_ACCESS_KEY,
 });

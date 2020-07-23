@@ -77,5 +77,3 @@ export const userSelectImage = (data) => ({
   type: actionTypes.USER_CLICKS_IMAGE,
   payload: data,
 });
-
-export const imageDownload = (data) => {};

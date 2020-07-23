@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Panel Component expect to render Image panel 1`] = `ShallowWrapper {}`;
