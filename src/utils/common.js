@@ -1,7 +1,7 @@
 import Unsplash from "unsplash-js";
 
 export const unsplash = new Unsplash({
-  accessKey: "C6bzEnmvODyk9wJ3ig0V4E7p9pwGVkZNejOftxLLdVI",
+  accessKey: process.env.REACT_APP_ACCESS_KEY,
 });
 
 export const downloadImage = (imageUrl) => {
