@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 
 import "./ImagePanel.scss";
 import { Link } from "react-router-dom";
+import Spinner from "../Spinner/spinner.component";
 
 const ImagePanel = ({
   updatePageNumber,
@@ -26,27 +27,29 @@ const ImagePanel = ({
   return (
     <React.Fragment>
       <div className="image-container">
-        {collection.length !== 0
-          ? collection.map((item) => (
-              <Link key={item.id} to="/image-view">
-                <div
-                  className="image-element"
-                  onClick={() => userSelectImage(item)}
-                >
-                  <img src={item.urls.small} alt={item.alt_description} />
-                  <div className="user-detail-sm">
-                    <img
-                      src={item.user.profile_image.medium}
-                      alt={item.user.name}
-                    />
-                    <p>
-                      Image By <span>{item.user.name}</span>
-                    </p>
-                  </div>
+        {collection.length !== 0 ? (
+          collection.map((item) => (
+            <Link key={item.id} to="/image-view">
+              <div
+                className="image-element"
+                onClick={() => userSelectImage(item)}
+              >
+                <img src={item.urls.small} alt={item.alt_description} />
+                <div className="user-detail-sm">
+                  <img
+                    src={item.user.profile_image.medium}
+                    alt={item.user.name}
+                  />
+                  <p>
+                    Image By <span>{item.user.name}</span>
+                  </p>
                 </div>
-              </Link>
-            ))
-          : null}
+              </div>
+            </Link>
+          ))
+        ) : (
+          <Spinner />
+        )}
       </div>
       <Button onClick={() => updatePageNumber(page, currentQuery)}>
         Load More

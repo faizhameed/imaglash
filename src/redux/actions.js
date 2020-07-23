@@ -4,6 +4,13 @@ import { toJson } from "unsplash-js";
 
 export const changeSearchQuery = (query) => {
   return function (dispatch) {
+    dispatch({
+      type: actionTypes.SEARCH_QUERY_CHANGED,
+      payload: {
+        results: [],
+        query: "",
+      },
+    });
     if (unsplash) {
       unsplash.search
         .photos(query, 1, 9)
