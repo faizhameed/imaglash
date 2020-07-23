@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image View Page expect to render Image View 1`] = `ShallowWrapper {}`;
