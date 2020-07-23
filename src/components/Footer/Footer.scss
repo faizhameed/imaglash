@@ -4,6 +4,7 @@ footer {
   position: absolute;
   left: 0;
   background-color: #1a1d26;
+  overflow-x: hidden;
   h3 {
     font-size: 2em;
     align-self: center;
@@ -25,15 +26,15 @@ footer {
   }
   .tag-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
     grid-template-rows: auto;
-    min-width: 400px;
+    min-width: 300px;
     h4 {
-      grid-area: 1/1/2/4;
+      grid-column: 1/-1;
       font-size: 1.2em;
     }
     p {
-      margin: 10px 0;
+      margin: 8px 0;
     }
   }
 }

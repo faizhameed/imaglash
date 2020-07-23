@@ -40,6 +40,9 @@ const ImageView = ({ userImageSelection }) => {
             </Button>
           </div>
         ) : (
+          /*
+           * Redirect if the route is accessed without any image selected
+           */
           <Redirect push to="/" />
         )}
       </div>
