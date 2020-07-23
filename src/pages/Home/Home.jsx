@@ -6,12 +6,12 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <SearchBar />
       <ImagePanel />
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 

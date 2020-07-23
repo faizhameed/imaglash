@@ -7,6 +7,9 @@ const BackgroundImage = ({ randomImageUrl, getRandomImage }) => {
   useEffect(() => {
     getRandomImage();
   }, [getRandomImage]);
+  /*
+   * To load random image we initialies the div element background with random image,which is called when react loads
+   */
   const Div = styled.div`
     content: "";
     display: block;

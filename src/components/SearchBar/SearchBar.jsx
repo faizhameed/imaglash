@@ -9,6 +9,9 @@ import "./SearchBar.scss";
 const SearchBar = ({ tags, changeSearchQuery }) => {
   let inputQuery = React.createRef();
   const handleSearch = () => {
+    /*
+     * Make search only if there is a value entered in the input box
+     */
     if (inputQuery.current.value) changeSearchQuery(inputQuery.current.value);
   };
   return (
@@ -31,7 +34,7 @@ const SearchBar = ({ tags, changeSearchQuery }) => {
           placeholder="Search for images here..."
           onKeyPress={(ev) => {
             if (ev.key === "Enter") {
-              handleSearch();
+              handleSearch(); // handle search called again for enter key press
             }
           }}
         />

@@ -51,6 +51,10 @@ const ImagePanel = ({
           <Spinner />
         )}
       </div>
+      {/*
+       * when load more button is clicked updatePagenumber function is run which in turn triggers
+       * related actions and appends next set of pictures
+       */}
       <Button onClick={() => updatePageNumber(page, currentQuery)}>
         Load More
       </Button>
