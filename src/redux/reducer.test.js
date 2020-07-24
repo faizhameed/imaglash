@@ -37,4 +37,33 @@ describe("Unsplash intialisation", () => {
       userImageSelection: null,
     });
   });
+  const IMAGE_PRE_LOADED = {
+    unsplash: null,
+    tags: ["Dog", "Cat", "Space"],
+    currentQuery: "Book",
+    page: 1,
+    collection: [1, 2, 3, 4],
+    totalPages: 10,
+    randomImageUrl: "",
+    userImageSelection: null,
+  };
+  it("should load more data on same query", () => {
+    expect(
+      unsplashReducer(IMAGE_PRE_LOADED, {
+        type: actionTypes.LOAD_MORE_DATA,
+        payload: {
+          results: [5, 6, 7],
+        },
+      })
+    ).toEqual({
+      unsplash: null,
+      tags: ["Dog", "Cat", "Space"],
+      currentQuery: "Book",
+      page: 2,
+      collection: [1, 2, 3, 4, 5, 6, 7],
+      totalPages: 10,
+      randomImageUrl: "",
+      userImageSelection: null,
+    });
+  });
 });
